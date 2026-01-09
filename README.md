@@ -7,7 +7,7 @@
 
 [![Try it on gitpod](https://img.shields.io/badge/try-on%20gitpod-brightgreen.svg)](https://gitpod.io/#https://github.com/PrismarineJS/node-minecraft-assets)
 
-Provide easy access to [minecraft-assets](https://github.com/rom1504/minecraft-assets) in node.js
+Provide easy access to [minecraft-assets](https://github.com/nymph-ai/minecraft-assets) in node.js
 
 ## Example
 
@@ -23,4 +23,21 @@ console.log(mcAssets.textureContent["wheat_seeds"].texture)
 
  * See [doc/api.md](doc/api.md)
  * See [doc/history.md](doc/history.md)
+
+## NPM install (alias)
+
+This fork publishes as `@nymph-ai/minecraft-assets`. To keep existing
+`require("minecraft-assets")` usage, install via an npm alias:
+
+```bash
+npm install minecraft-assets@npm:@nymph-ai/minecraft-assets
+```
+
+## Local dev with submodules
+
+For local development, keep the `minecraft-assets` submodule checked out:
+
+```bash
+git submodule update --init --recursive
+```
  

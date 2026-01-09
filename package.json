@@ -1,18 +1,19 @@
 {
-  "name": "minecraft-assets",
-  "version": "1.17.0",
-  "description": "Provide minecraft assets",
+  "name": "@nymph-ai/minecraft-assets",
+  "version": "1.21.11-nymph.0",
+  "description": "Provide minecraft assets (nymph-ai fork)",
   "main": "index.js",
   "tonicExampleFilename": "example.js",
   "scripts": {
     "test": "npm run lint",
     "lint": "standard",
     "fix": "standard --fix",
-    "prepare": "npm install require-self && require-self"
+    "prepare": "npm install require-self && require-self",
+    "prepack": "git submodule update --init --recursive && node scripts/verify-data.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/rom1504/node-minecraft-assets.git"
+    "url": "https://github.com/nymph-ai/node-minecraft-assets"
   },
   "keywords": [
     "minecraft",
@@ -21,9 +22,20 @@
   "author": "Romain Beaumont <romain.rom1@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rom1504/node-minecraft-assets/issues"
+    "url": "https://github.com/nymph-ai/node-minecraft-assets/issues"
   },
-  "homepage": "https://github.com/rom1504/node-minecraft-assets#readme",
+  "homepage": "https://github.com/nymph-ai/node-minecraft-assets#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "minecraft-assets/data/**",
+    "README.md",
+    "LICENSE",
+    "example.js"
+  ],
   "devDependencies": {
     "require-self": "^0.2.3",
     "standard": "^17.0.0"
