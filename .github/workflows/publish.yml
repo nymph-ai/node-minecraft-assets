@@ -21,6 +21,8 @@ jobs:
       with:
         node-version: 22.9.0
         registry-url: https://registry.npmjs.org
+    - name: Update npm
+      run: npm install -g npm@11.7.0
     - name: Diagnostics
       run: |
         node --version
@@ -28,6 +30,8 @@ jobs:
         echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}"
         echo "GITHUB_REF=${GITHUB_REF}"
         echo "GITHUB_WORKFLOW=${GITHUB_WORKFLOW}"
+        npm config get registry
+        npm config get provenance || true
         if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]; then
           echo "Missing ACTIONS_ID_TOKEN_REQUEST_URL"
         fi
