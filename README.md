@@ -57,4 +57,7 @@ To bump the npm version for a Minecraft release and commit:
 ```bash
 make release MC_VERSION=1.21.11
 ```
+
+Automated releases require a GitHub secret named `NYMPH_AI_RELEASE_TOKEN`
+with permission to push to `nymph-ai/node-minecraft-assets`.
  

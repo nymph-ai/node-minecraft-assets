@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
-    environment: npm-publish
     steps:
       - uses: actions/checkout@v4
         with:
@@ -17,7 +15,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.0.0
-          registry-url: https://registry.npmjs.org
       - name: Configure git
         run: |
           git config user.name 'nymph-ai-bot'
@@ -37,10 +34,9 @@ jobs:
             echo "No changes to push."
             exit 0
           fi
+          if [ -z "${{ secrets.NYMPH_AI_RELEASE_TOKEN }}" ]; then
+            echo "Missing NYMPH_AI_RELEASE_TOKEN secret for pushing release commits." >&2
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${{ secrets.NYMPH_AI_RELEASE_TOKEN }}@github.com/nymph-ai/node-minecraft-assets.git"
           git push
-      - name: Publish
-        if: ${{ success() }}
-        run: |
-          rm -f .npmrc
-          npm config delete //registry.npmjs.org/:_authToken || true
-          npm publish --provenance --access public
