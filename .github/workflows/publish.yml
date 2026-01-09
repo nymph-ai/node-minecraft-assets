@@ -42,7 +42,13 @@ jobs:
       run: |
         rm -f .npmrc
         npm config delete //registry.npmjs.org/:_authToken || true
+    - name: Unset token env
+      run: |
+        unset NPM_TOKEN
+        unset NODE_AUTH_TOKEN
     - name: Publish
       env:
+        NPM_CONFIG_USERCONFIG: /dev/null
+        NPM_CONFIG_REGISTRY: https://registry.npmjs.org
         NPM_CONFIG_PROVENANCE: "true"
       run: npm publish --provenance --access public --tag nymph
