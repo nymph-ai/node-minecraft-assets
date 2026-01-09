@@ -40,4 +40,21 @@ For local development, keep the `minecraft-assets` submodule checked out:
 ```bash
 git submodule update --init --recursive
 ```
+
+## Local publishing env file
+
+This repo tracks a blank `.env`. To keep your local token out of `git status`,
+configure the env filter once:
+
+```bash
+bash scripts/setup-git-filters.sh
+```
+
+## Release workflow
+
+To bump the npm version for a Minecraft release and commit:
+
+```bash
+make release MC_VERSION=1.21.11
+```
  

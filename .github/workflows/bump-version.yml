@@ -1,0 +1,30 @@
+name: bump-version
+on:
+  workflow_dispatch:
+    inputs:
+      mc_version:
+        description: Minecraft version (e.g. 1.21.11)
+        required: true
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.0.0
+      - name: Configure git
+        run: |
+          git config user.name "nymph-ai-bot"
+          git config user.email "nymph-ai-bot@users.noreply.github.com"
+      - name: Bump version
+        run: bash scripts/bump-nymph-version.sh "${{ inputs.mc_version }}"
+      - name: Push changes
+        run: |
+          git push
