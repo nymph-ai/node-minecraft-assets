@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 22.0.0
+        node-version: 22.9.0
         registry-url: https://registry.npmjs.org
     - name: Diagnostics
       run: |
@@ -34,8 +34,6 @@ jobs:
         if [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]; then
           echo "Missing ACTIONS_ID_TOKEN_REQUEST_TOKEN"
         fi
-    - name: Update npm
-      run: npm install -g npm@latest
     - name: Clear token-based auth
       run: |
         rm -f .npmrc
