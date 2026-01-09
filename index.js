@@ -30,7 +30,7 @@ module.exports = function (mcVersion) {
 }
 
 const data = {
-  'common': {
+  common: {
     blocksTextures: require('./minecraft-assets/data/common/blocks_textures'),
     itemsTextures: require('./minecraft-assets/data/common/items_textures'),
     textureContent: require('./minecraft-assets/data/common/texture_content'),
@@ -44,7 +44,7 @@ const data = {
     blocksStates: require('./minecraft-assets/data/1.8.8/blocks_states'),
     blocksModels: require('./minecraft-assets/data/1.8.8/blocks_models')
   },
-  '1.9': {
+  1.9: {
     blocksTextures: require('./minecraft-assets/data/1.9/blocks_textures'),
     itemsTextures: require('./minecraft-assets/data/1.9/items_textures'),
     textureContent: require('./minecraft-assets/data/1.9/texture_content'),
@@ -65,14 +65,14 @@ const data = {
     blocksStates: require('./minecraft-assets/data/1.11.2/blocks_states'),
     blocksModels: require('./minecraft-assets/data/1.11.2/blocks_models')
   },
-  '1.12': {
+  1.12: {
     blocksTextures: require('./minecraft-assets/data/1.12/blocks_textures'),
     itemsTextures: require('./minecraft-assets/data/1.12/items_textures'),
     textureContent: require('./minecraft-assets/data/1.12/texture_content'),
     blocksStates: require('./minecraft-assets/data/1.12/blocks_states'),
     blocksModels: require('./minecraft-assets/data/1.12/blocks_models')
   },
-  '1.13': {
+  1.13: {
     blocksTextures: require('./minecraft-assets/data/1.13/blocks_textures'),
     itemsTextures: require('./minecraft-assets/data/1.13/items_textures'),
     textureContent: require('./minecraft-assets/data/1.13/texture_content'),
@@ -206,4 +206,3 @@ for (const version in data) {
     lastOfMajor[major] = version
   }
 }
-
