@@ -25,12 +25,17 @@ jobs:
       run: |
         node --version
         npm --version
+        echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}"
+        echo "GITHUB_REF=${GITHUB_REF}"
+        echo "GITHUB_WORKFLOW=${GITHUB_WORKFLOW}"
         if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]; then
           echo "Missing ACTIONS_ID_TOKEN_REQUEST_URL"
         fi
         if [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]; then
           echo "Missing ACTIONS_ID_TOKEN_REQUEST_TOKEN"
         fi
+    - name: Update npm
+      run: npm install -g npm@latest
     - name: Clear token-based auth
       run: |
         rm -f .npmrc
