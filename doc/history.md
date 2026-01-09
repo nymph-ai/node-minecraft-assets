@@ -1,3 +1,6 @@
+## 1.21.11-nymph.3
+* update mcassets 1.21.11
+
 ## 1.21.11-nymph.2
 * update mcassets 1.21.11
 

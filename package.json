@@ -1,6 +1,6 @@
 {
   "name": "@nymph-ai/minecraft-assets",
-  "version": "1.21.11-nymph.2",
+  "version": "1.21.11-nymph.3",
   "description": "Provide minecraft assets (nymph-ai fork)",
   "main": "index.js",
   "tonicExampleFilename": "example.js",
