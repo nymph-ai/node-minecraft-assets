@@ -21,9 +21,21 @@ jobs:
       with:
         node-version: 22.0.0
         registry-url: https://registry.npmjs.org
+    - name: Diagnostics
+      run: |
+        node --version
+        npm --version
+        if [ -z "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]; then
+          echo "Missing ACTIONS_ID_TOKEN_REQUEST_URL"
+        fi
+        if [ -z "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]; then
+          echo "Missing ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+        fi
     - name: Clear token-based auth
       run: |
         rm -f .npmrc
         npm config delete //registry.npmjs.org/:_authToken || true
     - name: Publish
+      env:
+        NPM_CONFIG_PROVENANCE: "true"
       run: npm publish --provenance --access public
