@@ -30,10 +30,6 @@ jobs:
           bash scripts/bump-nymph-version.sh "${{ github.event.client_payload.tag }}"
       - name: Push changes
         run: |
-          if git diff --cached --quiet; then
-            echo "No changes to push."
-            exit 0
-          fi
           if [ -z "${{ secrets.NYMPH_AI_RELEASE_TOKEN }}" ]; then
             echo "Missing NYMPH_AI_RELEASE_TOKEN secret for pushing release commits." >&2
             exit 1
