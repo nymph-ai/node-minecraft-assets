@@ -28,5 +28,9 @@ jobs:
       with:
         node-version: 22.0.0
         registry-url: https://registry.npmjs.org
+    - name: Clear token-based auth
+      run: |
+        rm -f .npmrc
+        npm config delete //registry.npmjs.org/:_authToken || true
     - name: Publish
       run: npm publish --provenance --access public
